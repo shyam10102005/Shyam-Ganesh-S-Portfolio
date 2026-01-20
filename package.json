@@ -3,13 +3,13 @@
     "version": "0.0.0",
     "private": true,
     "description": "An immersive 3D personal portfolio built with React, Three.js, and Tailwind CSS. Features an interactive solar system navigation, realistic planet simulations, and smooth framer-motion animations to showcase skills and projects in a cosmic setting.",
-    "homepage": "https://shyam10102005.github.io/Shyam-Ganesh-S-Portfilio",
+    "homepage": "https://shyam10102005.github.io/Shyam-Ganesh-S-Portfolio",
     "bugs": {
-        "url": "https://github.com/shyam10102005/Shyam-Ganesh-S-Portfilio/issues"
+        "url": "https://github.com/shyam10102005/Shyam-Ganesh-S-Portfolio/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/shyam10102005/Shyam-Ganesh-S-Portfilio.git"
+        "url": "git+https://github.com/shyam10102005/Shyam-Ganesh-S-Portfolio.git"
     },
     "license": "ISC",
     "author": "",
