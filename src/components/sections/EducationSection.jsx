@@ -36,10 +36,20 @@ function EducationSection() {
                     </p>
                 </div>
 
-                <div className="space-y-3 border-l-2 border-orange-400/30 pl-6">
-                    <div>
-                        <p className="text-cyan-400 font-semibold">Computer Science & Data Analytics</p>
-                        <p className="text-white/70">Specialized in machine learning and web development</p>
+                <div className="space-y-8 border-l-2 border-orange-400/30 pl-6 ml-2">
+                    <div className="relative">
+                        <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-orange-400 shadow-[0_0_10px_rgba(230,126,34,0.5)]" />
+                        <h4 className="text-xl font-bold text-white">Bachelor of Technology</h4>
+                        <p className="text-orange-300 font-medium">Artificial Intelligence and Data Analytics</p>
+                        <p className="text-cyan-400 font-semibold mt-1">Sri Ramachandra Engineering and Technology</p>
+                        <p className="text-white/60 text-sm">Porur, Chennai • 3rd Year (Present)</p>
+                    </div>
+
+                    <div className="relative">
+                        <div className="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-orange-400/50" />
+                        <h4 className="text-xl font-bold text-white">High School Diploma</h4>
+                        <p className="text-cyan-400 font-semibold mt-1">GK Shetty Vivekananda Vidyalaya Senior Secondary School</p>
+                        <p className="text-white/60 text-sm">Ambattur, India • Completed March 2023</p>
                     </div>
                 </div>
             </motion.div>

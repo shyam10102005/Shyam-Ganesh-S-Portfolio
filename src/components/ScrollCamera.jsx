@@ -15,7 +15,7 @@ const planetPositions = [
 ];
 
 function ScrollCamera({ currentPlanet, setCurrentPlanet, isDiving, selectedProject, mousePosition }) {
-    const { camera } = useThree();
+    const { camera, gl, controls } = useThree();
     const scrollY = useRef(0);
     const targetScrollY = useRef(0);
     const lookAtTarget = useRef(new THREE.Vector3(0, 0, 0));
@@ -98,28 +98,38 @@ function ScrollCamera({ currentPlanet, setCurrentPlanet, isDiving, selectedProje
         }
     }, [currentPlanet, camera, isDiving, selectedProject]);
 
+    // Update controls target if using OrbitControls
+    // Update controls target if using OrbitControls
+    useEffect(() => {
+        if (controls) {
+            // When diving, target the lookAt coordinates
+            // When orbiting, target center or specific point
+            const target = isDiving ? lookAtTarget.current : new THREE.Vector3(0, 0, 0);
+
+            gsap.to(controls.target, {
+                x: target.x,
+                y: target.y,
+                z: target.z,
+                duration: 1.5,
+                ease: 'power2.inOut'
+            });
+        }
+    }, [currentPlanet, isDiving, selectedProject, controls]);
+
     useFrame(() => {
         // Smooth scroll interpolation logic
         scrollY.current += (targetScrollY.current - scrollY.current) * 0.1;
 
-        // Base LookAt logic
-        camera.lookAt(lookAtTarget.current);
+        // Base LookAt logic - REMOVED to let OrbitControls handle it
+        // camera.lookAt(lookAtTarget.current);
 
         // Add subtle cursor-driven camera sway (parallax effect)
-        // We modify the camera position slightly based on mouse position
-        // BUT we only do this "on top" of the GSAP animation, so we use offset
+        // Only applying position sway, not returning lookAt
         if (!isDiving && mousePosition) {
             const swayAmount = 0.5;
+            // Apply slight offset to position without overriding OrbitControls
             camera.position.x += (mousePosition.x * swayAmount - (camera.position.x - camera.position.x)) * 0.05;
             camera.position.y += (mousePosition.y * swayAmount - (camera.position.y - camera.position.y)) * 0.05;
-
-            // Also slightly rotate camera based on cursor by adjusting lookAt target slightly
-            // We can cheat this by just looking slightly off-center
-            const lookSway = 1.0;
-            const currentLookAt = lookAtTarget.current.clone();
-            currentLookAt.x += mousePosition.x * lookSway;
-            currentLookAt.y += mousePosition.y * lookSway;
-            camera.lookAt(currentLookAt);
         }
     });
 

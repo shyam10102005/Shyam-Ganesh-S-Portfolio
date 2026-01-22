@@ -2,7 +2,7 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
-import { Environment } from '@react-three/drei';
+import { Environment, OrbitControls } from '@react-three/drei';
 import { useLocation } from 'react-router-dom';
 import * as THREE from 'three';
 import Starfield from '@/components/Starfield';
@@ -43,6 +43,15 @@ function ThreeScene() {
             <Starfield count={3000} />
             <CosmicDust />
             <Environment preset="city" />
+
+            <OrbitControls
+                makeDefault
+                enableZoom={false}
+                enablePan={false}
+                rotateSpeed={0.5}
+                enableDamping
+                dampingFactor={0.05}
+            />
 
             {/* Render Solar System only on Home Page */}
             {isHome && <SolarSystem />}
