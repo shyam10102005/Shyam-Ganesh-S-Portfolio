@@ -5,6 +5,7 @@ import EducationSection from '@/components/sections/EducationSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
 import SkillsSection from '@/components/sections/SkillsSection';
 import ContactSection from '@/components/sections/ContactSection';
+import ExperienceSection from '@/components/sections/ExperienceSection';
 import CraterDive from '@/components/CraterDive';
 
 const sections = [
@@ -12,7 +13,8 @@ const sections = [
     { name: 'Education', component: EducationSection },
     { name: 'Projects', component: ProjectsSection },
     { name: 'Skills', component: SkillsSection },
-    { name: 'Contact', component: ContactSection }
+    { name: 'Contact', component: ContactSection },
+    { name: 'Experience', component: ExperienceSection }
 ];
 
 function PlanetInfo({ currentPlanet, isDiving, selectedProject, onCraterDive, onReturnToOrbit }) {

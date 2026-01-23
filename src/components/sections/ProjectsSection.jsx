@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 const projects = [
     {
         id: 0,
-        title: 'Student Dropout Classification',
+        title: 'Student Dropout Classification using ML',
         description: 'ML model predicting student dropout rates',
         icon: '🎓'
     },
@@ -15,6 +15,12 @@ const projects = [
         title: 'Gmail to WhatsApp Forwarder',
         description: 'Automated email forwarding system',
         icon: '📧'
+    },
+    {
+        id: 2,
+        title: 'Multi-Agent Framework for Political Discourse Analysis',
+        description: 'Political discourse analysis and misinformation forecasting',
+        icon: '🔍'
     }
 ];
 

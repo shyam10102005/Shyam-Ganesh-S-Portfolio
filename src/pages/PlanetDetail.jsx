@@ -11,7 +11,8 @@ const PLANET_INDICES = {
     education: 1,
     projects: 2,
     skills: 3,
-    contact: 4
+    contact: 4,
+    experience: 5
 };
 
 function PlanetDetail() {

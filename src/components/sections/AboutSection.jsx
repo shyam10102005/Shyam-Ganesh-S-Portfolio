@@ -22,12 +22,10 @@ function AboutSection() {
                 className="space-y-4 font-inter text-white/90"
             >
                 <p className="text-lg leading-relaxed">
-                    Welcome to my cosmic journey through technology and innovation. I'm a passionate developer
-                    and data enthusiast exploring the vast universe of software development and machine learning.
+                    I am a B.Tech student specializing in Artificial Intelligence and Data Analytics, with a strong interest in applying mathematical concepts to real-world problems.
                 </p>
                 <p className="text-lg leading-relaxed">
-                    Each planet in this digital solar system represents a different aspect of my professional journey,
-                    from education to skills, projects to contact. Navigate through the cosmos to discover more.
+                    I am confident in my decision-making abilities and known for approaching complex challenges with a practical, solution-oriented mindset.
                 </p>
             </motion.div>
         </div>
