@@ -81,7 +81,8 @@ function Planet({ index, name, color, orbitRadius, orbitSpeed, size, type, onSna
     const planetRef = useRef();
     const ringsRef = useRef();
     const groupRef = useRef();
-    const lastTapTimeRef = useRef(0);
+    const pointerDownPosRef = useRef(null);
+    const dragStartedRef = useRef(false);
 
     const [isHovered, setIsHovered] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
@@ -105,6 +106,7 @@ function Planet({ index, name, color, orbitRadius, orbitSpeed, size, type, onSna
                 // Check snap distance to center (Sun)
                 if (target.length() < 2.5) {
                     setIsDragging(false);
+                    dragStartedRef.current = false;
                     onSnap();
 
                     // Snap animation
@@ -118,6 +120,17 @@ function Planet({ index, name, color, orbitRadius, orbitSpeed, size, type, onSna
             groupRef.current.position.x = Math.cos(angle) * orbitRadius;
             groupRef.current.position.z = Math.sin(angle) * orbitRadius * 0.5; // Elliptical orbit to keep in view
             groupRef.current.position.y = 0;
+        }
+
+        // Check if pointer moved enough to start drag
+        if (pointerDownPosRef.current && !dragStartedRef.current) {
+            const dx = pointer.x - pointerDownPosRef.current.x;
+            const dy = pointer.y - pointerDownPosRef.current.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist > 0.02) {
+                dragStartedRef.current = true;
+                setIsDragging(true);
+            }
         }
 
         // 2. Self Rotation
@@ -221,21 +234,22 @@ function Planet({ index, name, color, orbitRadius, orbitSpeed, size, type, onSna
     return (
         <group
             ref={groupRef}
+            onDoubleClick={(e) => {
+                e.stopPropagation();
+                if (onDoubleTap) onDoubleTap();
+            }}
             onPointerDown={(e) => {
                 e.stopPropagation();
-                const now = Date.now();
-                if (now - lastTapTimeRef.current < 300) {
-                    // Double-tap detected — navigate to the page
-                    if (onDoubleTap) onDoubleTap();
-                    lastTapTimeRef.current = 0;
-                    return;
-                }
-                lastTapTimeRef.current = now;
                 e.target.setPointerCapture(e.pointerId);
-                setIsDragging(true);
+                pointerDownPosRef.current = { x: e.pointer?.x ?? 0, y: e.pointer?.y ?? 0 };
+                dragStartedRef.current = false;
             }}
             onPointerUp={(e) => {
-                setIsDragging(false);
+                if (dragStartedRef.current) {
+                    setIsDragging(false);
+                }
+                dragStartedRef.current = false;
+                pointerDownPosRef.current = null;
                 e.target.releasePointerCapture(e.pointerId);
             }}
             onPointerOver={() => { document.body.style.cursor = 'grab'; setIsHovered(true); }}
