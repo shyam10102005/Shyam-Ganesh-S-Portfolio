@@ -77,10 +77,11 @@ function CloudLayer({ scale = 1.02 }) {
     );
 }
 
-function Planet({ index, name, color, orbitRadius, orbitSpeed, size, type, onSnap }) {
+function Planet({ index, name, color, orbitRadius, orbitSpeed, size, type, onSnap, onDoubleTap }) {
     const planetRef = useRef();
     const ringsRef = useRef();
     const groupRef = useRef();
+    const lastTapTimeRef = useRef(0);
 
     const [isHovered, setIsHovered] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
@@ -222,6 +223,14 @@ function Planet({ index, name, color, orbitRadius, orbitSpeed, size, type, onSna
             ref={groupRef}
             onPointerDown={(e) => {
                 e.stopPropagation();
+                const now = Date.now();
+                if (now - lastTapTimeRef.current < 300) {
+                    // Double-tap detected — navigate to the page
+                    if (onDoubleTap) onDoubleTap();
+                    lastTapTimeRef.current = 0;
+                    return;
+                }
+                lastTapTimeRef.current = now;
                 e.target.setPointerCapture(e.pointerId);
                 setIsDragging(true);
             }}

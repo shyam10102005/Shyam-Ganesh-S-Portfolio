@@ -43,6 +43,7 @@ function SolarSystem() {
                     orbitRadius={planet.radius}
                     orbitSpeed={planet.speed}
                     onSnap={() => handleSnap(planet.path)}
+                    onDoubleTap={() => handleSnap(planet.path)}
                 />
             ))}
         </group>
