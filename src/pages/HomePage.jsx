@@ -29,7 +29,7 @@ function HomePage() {
                 className="text-center bg-black/30 backdrop-blur-sm px-6 py-3 rounded-full border border-white/10 absolute bottom-12 md:bottom-24" // Positioned lower
             >
                 <p className="text-white/70 font-inter text-sm md:text-base tracking-wide animate-pulse">
-                    Double-tap a planet or drag it to the sun to explore
+                    Double-tap a planet or Drag it to the sun to explore
                 </p>
             </motion.div>
 
