@@ -35,21 +35,23 @@ function ExperienceSection() {
                         <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
                             <h3 className="text-2xl font-bold text-white">Violavizn Technologies</h3>
                             <span className="text-cyan-300 font-mono text-sm bg-cyan-900/30 px-3 py-1 rounded-full border border-cyan-500/30">
-                                May 2025 - June 2025
+                                May 2025 – January 2026
                             </span>
                         </div>
 
                         <div className="text-gray-300 mb-4 flex items-center gap-2">
-                            <span>Thaiyur, India (Remote)</span>
+                            <span>AI / ML Intern · Remote</span>
                         </div>
 
-                        <h4 className="text-lg font-semibold text-cyan-100 mb-2">Automation Project - Gmail to WhatsApp Forwarder</h4>
-
-                        <p className="text-gray-300 leading-relaxed">
-                            Engineered an automated message forwarding system using nod, Gmail API, and the Meta WhatsApp Business API.
-                            This solution captures emails in real time and pushes important content (like OTPs, leads, and support tickets)
-                            directly to WhatsApp, improving response time and business efficiency.
-                        </p>
+                        <ul className="text-gray-300 leading-relaxed space-y-3 list-disc list-inside">
+                            <li>Built a multi-agent political intelligence system for misinformation analysis using NLP, LLMs, and RAG</li>
+                            <li>Implemented Retrieval-Augmented Generation (RAG) with Tavily Search and Wikipedia for real-time evidence retrieval</li>
+                            <li>Applied cross-encoder re-ranking and FLAN-T5 to generate explainable, evidence-backed verdicts</li>
+                            <li>Developed debate analysis and misinformation risk modules, deployed via a Gradio dashboard</li>
+                            <li>Achieved ~85% alignment with trusted fact-checking sources</li>
+                            <li>Built a Gmail → WhatsApp automation system using Gmail API and WhatsApp Business API</li>
+                            <li>Automated forwarding of OTPs, leads, and critical alerts, improving response speed and reducing manual monitoring</li>
+                        </ul>
                     </div>
                 </div>
 
