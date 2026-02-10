@@ -6,21 +6,17 @@ import { Button } from '@/components/ui/button';
 const projects = [
     {
         id: 0,
-        title: 'Student Dropout Classification using ML',
-        description: 'ML model predicting student dropout rates',
-        icon: '🎓'
+        title: 'Multi-Agent Framework for Political Discourse Analysis',
+        description: 'Political discourse analysis and misinformation forecasting',
+        icon: '🔍',
+        repo: 'https://github.com/shyam10102005/A-Multi-Agent-Framework-for-Political-Discourse-Analysis-and-Misinformation-Forecasting'
     },
     {
         id: 1,
         title: 'Gmail to WhatsApp Forwarder',
         description: 'Automated email forwarding system',
-        icon: '📧'
-    },
-    {
-        id: 2,
-        title: 'Multi-Agent Framework for Political Discourse Analysis',
-        description: 'Political discourse analysis and misinformation forecasting',
-        icon: '🔍'
+        icon: '📧',
+        repo: 'https://github.com/shyam10102005/Gmail-to-WhatsApp-Forwarder'
     }
 ];
 

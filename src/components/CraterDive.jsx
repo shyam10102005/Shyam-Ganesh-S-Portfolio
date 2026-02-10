@@ -6,15 +6,17 @@ import { Button } from '@/components/ui/button';
 const projects = [
     {
         id: 0,
-        title: 'Student Dropout Classification using ML',
-        description: 'Machine learning model to predict student dropout rates using various academic and demographic factors. Implemented using Python, scikit-learn, and data visualization libraries.',
-        technologies: ['Python', 'Machine Learning', 'scikit-learn', 'Pandas', 'Matplotlib']
+        title: 'Multi-Agent Framework for Political Discourse Analysis',
+        description: 'A multi-agent political intelligence system for misinformation analysis using NLP, LLMs, and RAG. Features Retrieval-Augmented Generation with Tavily Search and Wikipedia, cross-encoder re-ranking, FLAN-T5 for explainable verdicts, and a Gradio dashboard.',
+        technologies: ['Python', 'NLP', 'LLMs', 'RAG', 'FLAN-T5', 'Gradio', 'Tavily Search'],
+        repo: 'https://github.com/shyam10102005/A-Multi-Agent-Framework-for-Political-Discourse-Analysis-and-Misinformation-Forecasting'
     },
     {
         id: 1,
         title: 'Gmail to WhatsApp Forwarder',
-        description: 'Automated system to forward important emails from Gmail to WhatsApp using API integration. Features intelligent filtering and real-time notifications.',
-        technologies: ['Python', 'Gmail API', 'WhatsApp API', 'Automation']
+        description: 'Automated system to forward important emails from Gmail to WhatsApp using API integration. Forwards OTPs, leads, and critical alerts in real-time, improving response speed and reducing manual monitoring.',
+        technologies: ['Python', 'Gmail API', 'WhatsApp Business API', 'Automation'],
+        repo: 'https://github.com/shyam10102005/Gmail-to-WhatsApp-Forwarder'
     }
 ];
 
@@ -78,7 +80,7 @@ function CraterDive({ project, onReturnToOrbit }) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6 }}
-                        className="pt-6"
+                        className="pt-6 flex gap-4 flex-wrap"
                     >
                         <Button
                             onClick={onReturnToOrbit}
@@ -87,6 +89,16 @@ function CraterDive({ project, onReturnToOrbit }) {
                             <ArrowLeft className="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" />
                             Return to Orbit
                         </Button>
+                        {projectData.repo && (
+                            <a
+                                href={projectData.repo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="cosmic-button inline-flex items-center gap-2 px-4 py-2 rounded-md text-white font-inter text-sm hover:scale-105 transition-transform"
+                            >
+                                🔗 View on GitHub
+                            </a>
+                        )}
                     </motion.div>
                 </div>
             </div>
