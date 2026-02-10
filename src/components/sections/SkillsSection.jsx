@@ -4,20 +4,20 @@ import { Code2 } from 'lucide-react';
 
 const skillCategories = [
     {
-        title: "Programming",
-        skills: ["C", "C++", "Java", "Python", "SQL"]
+        title: "Languages",
+        skills: ["Python", "Java", "C"]
+    },
+    {
+        title: "AI / ML & LLMs",
+        skills: ["TensorFlow", "PyTorch", "Hugging Face", "Scikit-Learn", "RAG"]
     },
     {
         title: "Web Development",
-        skills: ["HTML", "CSS", "JavaScript", "Wordpress", "MERN"]
+        skills: ["HTML5", "CSS3", "JavaScript", "React", "Node.js", "MongoDB", "WordPress"]
     },
     {
-        title: "Databases",
-        skills: ["DBMS", "SQL", "MongoDB"]
-    },
-    {
-        title: "Data Analysis",
-        skills: ["Excel (Advanced)", "basics of Tableau", "Machine Learning"]
+        title: "Tools & Databases",
+        skills: ["MySQL", "Git", "Tableau", "Excel", "Power Bi"]
     }
 ];
 
